@@ -111,7 +111,7 @@ html{scroll-padding-top:20px;scroll-behavior:smooth}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 {
-const SALT='ae689187ef684f271c186122fb9d9224',ITER=600000;
+const SALT='c5a03e365a59eeb4d32682d2db83722a',ITER=600000;
 const hex=h=>new Uint8Array(h.match(/../g).map(x=>parseInt(x,16)));
 let KEY=null,FILES=null;const cache={};
 async function dec(buf){const b=new Uint8Array(buf);return crypto.subtle.decrypt({name:'AES-GCM',iv:b.slice(0,12)},KEY,b.slice(12))}
