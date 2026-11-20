@@ -111,7 +111,7 @@ html{scroll-padding-top:20px;scroll-behavior:smooth}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
 {
-const SALT='f774e4332741548ed1c077f7146fcc51',ITER=600000;
+const SALT='3d7f8abf7d63a1342bc56bfa2a5254ad',ITER=600000;
 const hex=h=>new Uint8Array(h.match(/../g).map(x=>parseInt(x,16)));
 let KEY=null,FILES=null;const cache={};
 async function dec(buf){const b=new Uint8Array(buf);return crypto.subtle.decrypt({name:'AES-GCM',iv:b.slice(0,12)},KEY,b.slice(12))}
@@ -122,7 +122,7 @@ window.hydrate=root=>{for(const im of root.querySelectorAll('img[data-src]')){co
 async function unlock(pw){
   const base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
   KEY=await crypto.subtle.deriveKey({name:'PBKDF2',salt:hex(SALT),iterations:ITER,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
-  const m=JSON.parse(new TextDecoder().decode(await getBin('m-f774e4332741.bin')));
+  const m=JSON.parse(new TextDecoder().decode(await getBin('m-3d7f8abf7d63.bin')));
   FILES=m.files;
   document.title='Dossiê do caso';
   document.body.innerHTML=m.markup;
